@@ -12,25 +12,25 @@ const Carousel = () => {
                     <img
                         src={activeCarouselItem < 1 ? carouselFilms[carouselFilms.length - 1].img : carouselFilms[activeCarouselItem - 1].img}
                         alt=""
-                        className={'absolute -left-3/4 brightness-50 z-20 h-3/4 hover:cursor-pointer hover:animate-pulse'}
+                        className={'absolute w-full -left-3/4 brightness-50 z-20 h-3/4 hover:cursor-pointer hover:animate-pulse'}
                         onClick={() => activeCarouselItem < 1 ? setActiveCarouselItem(carouselFilms.length - 1) : setActiveCarouselItem(prevState => prevState - 1)}/>
                     <div className="w-full h-full z-30 relative">
                         <div
                             className="w-full h-full absolute bg-gradient-to-t from-slate-950 from-15% to-transparent -bottom-2"></div>
                         <img src={carouselFilms[activeCarouselItem].img} alt=""
-                             className={'w-full h-auto'}/>
-                        <p className={'absolute bottom-20 left-10 text-slate-50 poppins text-7xl'}>{carouselFilms[activeCarouselItem].name}</p>
-                        <p className={'absolute bottom-10 left-10 text-slate-50 poppins text-xl'}>
-                            {carouselFilms[activeCarouselItem].director}
+                             className={'w-full'}/>
+                        <p className={'absolute bottom-20 left-10 right-10 text-slate-50 poppins text-[3vw]'}>{carouselFilms[activeCarouselItem].name}</p>
+                        <p className={'absolute bottom-10 left-10 text-slate-50 poppins text-[1.2vw]'}>
+                            {carouselFilms[activeCarouselItem].director} ({carouselFilms[activeCarouselItem].releaseDate})
                         </p>
                     </div>
                     <img
                         src={activeCarouselItem > carouselFilms.length - 2 ? carouselFilms[0].img : carouselFilms[activeCarouselItem + 1].img}
                         alt=""
-                        className={'absolute -right-3/4 brightness-50 z-20 h-3/4 hover:cursor-pointer hover:animate-pulse'}
+                        className={'absolute w-full -right-3/4 brightness-50 z-20 h-3/4 hover:cursor-pointer hover:animate-pulse'}
                         onClick={() => activeCarouselItem > carouselFilms.length - 2 ? setActiveCarouselItem(0) : setActiveCarouselItem(prevState => prevState + 1)}/>
                 </div>
-                <div className="absolute bottom-3 flex w-1/6 justify-between z-30">
+                <div className="absolute bottom-3 flex min-w-[170px] justify-between z-30">
                     <div
                         className={`w-4 h-4 rounded-full hover:cursor-pointer ${activeCarouselItem === 0 ? 'bg-neutral-300 animate-pulse' : 'bg-slate-500'}`}
                         onClick={() => setActiveCarouselItem(0)}></div>
